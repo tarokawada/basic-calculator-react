@@ -1,13 +1,20 @@
 import React from 'react'
-import CalculatorBody from './CalculatorBody'
+import styled from 'styled-components'
+import Body from './Body'
 
 class App extends React.Component {
     render(){
         return(
-            <CalculatorBody>
-            </CalculatorBody>
+            <Wrapper>
+                <Body />
+            </Wrapper>
         )
     }
 }
 
+const Wrapper = styled.div`
+    width: 400px;
+    margin: auto;
+    margin-top: 100px;
+`
 export default App
