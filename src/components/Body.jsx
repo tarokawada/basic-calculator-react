@@ -17,7 +17,7 @@ const styles = {
     },
     equals: {
         marginLeft: '12px',
-        background: '#EB5757'
+        background: '#F1633D'
     }
 }
 class Body extends React.Component {

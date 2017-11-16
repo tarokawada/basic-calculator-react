@@ -3,7 +3,7 @@ import styled from 'styled-components'
 export const CalculatorBody = styled.div`
     width: 400px;
     height: 475px;
-    background: #85F1B2;
+    background: #6CC7CB;
     border: 2px solid #000000;
     box-sizing: border-box;
     border-radius: 10px;
@@ -17,7 +17,7 @@ export const Button = styled.button`
     border-radius: 5px;
     font-size: 36px;
     font-family: 'Righteous';
-    background: ${props => props.notNumber ? '#F2C94C' : '#56CCF2'};
+    background: ${props => props.notNumber ? '#F2C94C' : '#CDEEF0'};
 `
 
 export const Screen = styled.div`
