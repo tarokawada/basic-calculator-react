@@ -1,7 +1,7 @@
 import React from 'react'
-import styled from 'styled-components'
 import math from 'mathjs'
-import { CalculatorBody, Button, Screen } from './CalculatorComponents'
+import { CalculatorBody, Button } from './CalculatorComponents'
+import CalculatorScreen from './CalculatorScreen'
 
 const styles = {
     button: {
@@ -36,25 +36,30 @@ class Body extends React.Component {
 
     handleRemove = () => {
         this.setState({
-            equation: ''
+            equation: '',
+            answer: ''
         })
     }
 
     handleCalculate = () => {
         const answer = math.eval(this.state.equation)
-        console.log(answer)
         this.setState({
             answer: answer,
             equation: answer
         })
     }
+
+    backSpace = () => {
+        const equation = this.state.equation.slice(0, -1)
+        this.setState({
+            equation
+        })
+    }
     render(){
         return(
             <CalculatorBody>
-                <Screen/>
+                <CalculatorScreen equation={this.state.equation} answer={this.state.answer}/>
                 <div style={{marginTop: '26px'}}>
-                <div>{this.state.equation}</div>
-                <div>{this.state.answer}</div>
                     <div style={styles.div}>
                         <Button onClick={() => {this.handleClick('1')}}>1</Button>
                         <Button style={styles.button} onClick={() => {this.handleClick('2')}}>2</Button>
@@ -77,10 +82,9 @@ class Body extends React.Component {
                         <Button style={{marginLeft:'93px'}} onClick={() => {this.handleClick('0')}}>0</Button>
                         <Button notNumber style={{marginLeft:'105px'}} onClick={() => {this.handleClick('/')}}>/</Button>
                     </div>
-                    <div style={styles.div}>
-                        <Button notNumber>7</Button>
+                    <div style={{width:'360px', margin: 'auto 0 0 99px'}}>
                         <Button notNumber style={styles.button} onClick={this.handleRemove}>C</Button>
-                        <Button notNumber style={styles.button}>{`<-`}</Button>
+                        <Button notNumber style={styles.button} onClick={this.backSpace}>{`<-`}</Button>
                         <Button style={styles.equals} onClick={this.handleCalculate}>=</Button>
                     </div>
                 </div>

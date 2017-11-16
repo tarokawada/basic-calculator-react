@@ -6,7 +6,7 @@ export const CalculatorBody = styled.div`
     background: #85F1B2;
     border: 2px solid #000000;
     box-sizing: border-box;
-    border-radius: 5px;
+    border-radius: 10px;
 `
 
 export const Button = styled.button`
